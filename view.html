@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image + Extracted JSON</title>
+  <style>
+    body { display: flex; gap: 20px; font-family: sans-serif; }
+    img { max-width: 500px; border: 1px solid #ccc; }
+    .json-box {
+      background: #f5f5f5;
+      border: 1px solid #ccc;
+      padding: 10px;
+      white-space: pre-wrap;
+      max-width: 600px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h3>Image:</h3>
+    <img src="{{ url_for('static', filename=image_file) }}" alt="Image">
+  </div>
+  <div class="json-box">
+    <h3>Extracted JSON:</h3>
+    <code>{{ json_data | tojson(indent=2) }}</code>
+  </div>
+</body>
+</html>

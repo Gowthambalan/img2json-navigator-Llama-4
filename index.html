@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>Select Main Folder</title></head>
+<body>
+  <h2>Step 1: Enter Main Folder Path</h2>
+  <form method="post">
+    <input type="text" name="main_folder_path" size="70" placeholder="e.g. D:/certificates/">
+    <button type="submit">List Subfolders</button>
+  </form>
+
+  {% if subfolders %}
+    <h3>Step 2: Select a Subfolder</h3>
+    <ul>
+      {% for sub in subfolders %}
+        <li><a href="{{ url_for('folder_view', subfolder=sub) }}">{{ sub }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</body>
+</html>
